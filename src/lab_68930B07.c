@@ -13,6 +13,19 @@ Re-mould it nearer to the Heart's Desire!";
 int strindex(const char source[], char pattern[])
 {
     // TODO: write your code here
+    if (pattern[0] == '\0') {
+        return -1;
+    }
+
+    int last_index = -1;
+    const char *match = strstr(source, pattern);
+
+    while (match != NULL) {
+        last_index = (int)(match - source);
+        match = strstr(match + 1, pattern);
+    }
+
+    return last_index;
 }
 
 // DO NOT change the code below
